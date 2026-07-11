@@ -32,6 +32,51 @@
             border-radius: 6px;
         }
 
+        /* —— 语言切换器 —— */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(255, 250, 245, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 30px;
+            padding: 0.4rem 0.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255, 248, 240, 0.6);
+            display: flex;
+            gap: 0.6rem;
+        }
+        .lang-switcher button {
+            background: transparent;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4f6e5b;
+            cursor: pointer;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .lang-switcher button:hover {
+            background: rgba(47, 90, 71, 0.1);
+        }
+        .lang-switcher button.active {
+            background: #2f5a47;
+            color: white;
+        }
+        @media (max-width: 720px) {
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 0.3rem 0.5rem;
+            }
+            .lang-switcher button {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.4rem;
+            }
+        }
+
         /* —— 顶部英雄区 —— */
         .hero {
             position: relative;
@@ -57,14 +102,8 @@
             animation: shimmer 12s ease-in-out infinite alternate;
         }
         @keyframes shimmer {
-            0% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1.2) rotate(6deg);
-                opacity: 1;
-            }
+            0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            100% { transform: scale(1.2) rotate(6deg); opacity: 1; }
         }
 
         .bird-silhouette {
@@ -76,36 +115,12 @@
             z-index: 0;
             animation: floatBird 18s ease-in-out infinite alternate;
         }
-        .bird-silhouette:nth-of-type(1) {
-            top: 8%;
-            left: 5%;
-            font-size: 10rem;
-            animation-duration: 22s;
-            transform: rotate(-8deg);
-        }
-        .bird-silhouette:nth-of-type(2) {
-            bottom: 12%;
-            right: 6%;
-            font-size: 14rem;
-            animation-duration: 26s;
-            transform: rotate(12deg);
-            animation-delay: -4s;
-        }
-        .bird-silhouette:nth-of-type(3) {
-            top: 45%;
-            left: 70%;
-            font-size: 8rem;
-            animation-duration: 20s;
-            animation-delay: -8s;
-            transform: rotate(4deg);
-        }
+        .bird-silhouette:nth-of-type(1) { top: 8%; left: 5%; font-size: 10rem; animation-duration: 22s; transform: rotate(-8deg); }
+        .bird-silhouette:nth-of-type(2) { bottom: 12%; right: 6%; font-size: 14rem; animation-duration: 26s; transform: rotate(12deg); animation-delay: -4s; }
+        .bird-silhouette:nth-of-type(3) { top: 45%; left: 70%; font-size: 8rem; animation-duration: 20s; animation-delay: -8s; transform: rotate(4deg); }
         @keyframes floatBird {
-            0% {
-                transform: translateY(-20px) rotate(-6deg) scale(1);
-            }
-            100% {
-                transform: translateY(30px) rotate(6deg) scale(1.05);
-            }
+            0% { transform: translateY(-20px) rotate(-6deg) scale(1); }
+            100% { transform: translateY(30px) rotate(6deg) scale(1.05); }
         }
 
         .hero-content {
@@ -114,16 +129,13 @@
             max-width: 880px;
             background: rgba(255, 250, 245, 0.70);
             backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
             border-radius: 56px 56px 56px 16px;
             padding: 3.5rem 3rem 4rem;
             box-shadow: 0 30px 60px rgba(60, 50, 40, 0.20), inset 0 1px 4px rgba(255, 255, 255, 0.6);
             border: 1px solid rgba(255, 248, 240, 0.5);
             transition: transform 0.3s ease;
         }
-        .hero-content:hover {
-            transform: scale(1.01);
-        }
+        .hero-content:hover { transform: scale(1.01); }
 
         .hero-icon {
             font-size: 4.8rem;
@@ -133,12 +145,8 @@
             animation: gentleSway 4s ease-in-out infinite alternate;
         }
         @keyframes gentleSway {
-            0% {
-                transform: rotate(-4deg) scale(1);
-            }
-            100% {
-                transform: rotate(4deg) scale(1.02);
-            }
+            0% { transform: rotate(-4deg) scale(1); }
+            100% { transform: rotate(4deg) scale(1.02); }
         }
 
         .hero h1 {
@@ -177,6 +185,19 @@
             border: 1px solid rgba(90, 130, 110, 0.15);
             color: #2f4d3e;
         }
+        .hero .desc {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: #345543;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .desc span {
+            background: rgba(100,150,130,0.10);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
 
         /* —— 内容区块 —— */
         .container {
@@ -189,9 +210,7 @@
             padding: 4.5rem 0 5rem;
             border-bottom: 1px solid rgba(180, 165, 150, 0.20);
         }
-        .section:last-of-type {
-            border-bottom: none;
-        }
+        .section:last-of-type { border-bottom: none; }
 
         .section-title {
             font-size: clamp(2rem, 4.5vw, 3rem);
@@ -228,11 +247,9 @@
             margin-top: 1.2rem;
         }
 
-        /* ---------- 替換為更詳細的文字介紹 ---------- */
         .card {
             background: #ffffffd9;
             backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
             border-radius: 32px;
             padding: 2.2rem 2rem 2.5rem;
             box-shadow: 0 12px 30px rgba(80, 70, 60, 0.06);
@@ -366,9 +383,7 @@
             max-width: 380px;
             transition: transform 0.2s;
         }
-        .timeline-item .timeline-content:hover {
-            transform: scale(1.02);
-        }
+        .timeline-item .timeline-content:hover { transform: scale(1.02); }
         .timeline-item .timeline-content .year {
             font-weight: 700;
             font-size: 1.3rem;
@@ -385,9 +400,7 @@
             margin-top: 0.3rem;
         }
         @media (max-width: 720px) {
-            .timeline::before {
-                left: 20px;
-            }
+            .timeline::before { left: 20px; }
             .timeline-item {
                 width: 100%;
                 padding-left: 3.5rem !important;
@@ -395,12 +408,8 @@
                 margin-left: 0 !important;
                 justify-content: flex-start !important;
             }
-            .timeline-item .timeline-dot {
-                left: 20px;
-            }
-            .timeline-item .timeline-content {
-                max-width: 100%;
-            }
+            .timeline-item .timeline-dot { left: 20px; }
+            .timeline-item .timeline-content { max-width: 100%; }
         }
 
         /* —— 签名 / 行动 —— */
@@ -481,95 +490,40 @@
             border-top: 1px solid rgba(120, 110, 95, 0.2);
             margin-top: 2rem;
         }
-        .footer .hearts {
-            color: #b35d4a;
-        }
+        .footer .hearts { color: #b35d4a; }
         .footer a {
             color: #2d4f3b;
             text-decoration: none;
             border-bottom: 1px dotted rgba(45, 79, 59, 0.3);
         }
-        .footer a:hover {
-            border-bottom-color: #2d4f3b;
-        }
+        .footer a:hover { border-bottom-color: #2d4f3b; }
 
         /* —— 响应式 —— */
         @media (max-width: 720px) {
-            .hero-content {
-                padding: 2.2rem 1.5rem 2.8rem;
-                border-radius: 40px 40px 40px 12px;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 1.8rem;
-            }
-            .protect-block {
-                padding: 2rem 1.5rem;
-            }
-            .callout-danger {
-                padding: 1.5rem 1.2rem;
-            }
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 0.8rem;
-            }
-            .stat-row {
-                gap: 1.8rem;
-            }
-            .section {
-                padding: 3rem 0 3.5rem;
-            }
+            .hero-content { padding: 2.2rem 1.5rem 2.8rem; border-radius: 40px 40px 40px 12px; }
+            .hero h1 { font-size: 2.4rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 1.8rem; }
+            .protect-block { padding: 2rem 1.5rem; }
+            .callout-danger { padding: 1.5rem 1.2rem; }
+            .btn-outline { margin-left: 0; margin-top: 0.8rem; }
+            .stat-row { gap: 1.8rem; }
+            .section { padding: 3rem 0 3.5rem; }
         }
-
         @media (max-width: 420px) {
-            .hero .tagline {
-                font-size: 0.95rem;
-                padding: 0.5rem 1.2rem;
-            }
-            .card {
-                padding: 1.5rem 1.2rem 1.8rem;
-            }
-            .protect-block h3 {
-                font-size: 1.4rem;
-                flex-wrap: wrap;
-            }
-        }
-
-        /* —— 工具类 —— */
-        .text-center {
-            text-align: center;
-        }
-        .mt-1 {
-            margin-top: 1rem;
-        }
-        .mt-2 {
-            margin-top: 2rem;
-        }
-        .gap-1 {
-            gap: 0.6rem;
-        }
-        .flex-center {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-        .op-7 {
-            opacity: 0.7;
-        }
-
-        .spoon-icon {
-            display: inline-block;
-            font-size: 1.8rem;
-            vertical-align: middle;
-            margin: 0 0.2rem;
+            .hero .tagline { font-size: 0.95rem; padding: 0.5rem 1.2rem; }
+            .card { padding: 1.5rem 1.2rem 1.8rem; }
+            .protect-block h3 { font-size: 1.4rem; flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ====== 语言切换 ====== -->
+    <div class="lang-switcher">
+        <button onclick="setLanguage('zh-CN')" id="lang-zh-CN">简体</button>
+        <button onclick="setLanguage('zh-TW')" id="lang-zh-TW">繁體</button>
+        <button onclick="setLanguage('en')" id="lang-en">EN</button>
+    </div>
 
     <!-- ====== 英雄区 ====== -->
     <section class="hero">
@@ -579,44 +533,34 @@
 
         <div class="hero-content">
             <span class="hero-icon">🌿</span>
-            <h1>
-                为<span class="highlight">小勺子</span>发声
-            </h1>
-            <div class="subhead">
-                🥄 勺嘴鹬 · 湿地精灵 · 极度濒危
-            </div>
-            <div class="tagline">
-                ⚠️ 反对 G228 工程 · 守护最后的家园
-            </div>
-            <p style="margin-top:2rem; font-size:1.1rem; color:#345543; max-width:600px; margin-left:auto; margin-right:auto;">
-                <span style="background:rgba(100,150,130,0.10); padding:0.2rem 0.8rem; border-radius:40px;">
-                    牠们不是数字，是生命。
-                </span>
-            </p>
+            <h1 data-i18n="hero_title">为<span class="highlight">小勺子</span>发声</h1>
+            <div class="subhead" data-i18n="hero_sub">🥄 勺嘴鹬 · 湿地精灵 · 极度濒危</div>
+            <div class="tagline" data-i18n="hero_tag">⚠️ 反对 G228 工程 · 守护最后的家园</div>
+            <p class="desc"><span data-i18n="hero_desc">牠们不是数字，是生命。</span></p>
         </div>
     </section>
 
     <!-- ====== 主内容 ====== -->
     <div class="container">
 
-        <!-- 1. 關於小勺子（改為詳細文字介紹） -->
+        <!-- 1. 關於小勺子 -->
         <section class="section">
-            <h2 class="section-title center">🥄 認識「小勺子」</h2>
+            <h2 class="section-title center" data-i18n="about_title">🥄 认识「小勺子」</h2>
             <div class="grid-2">
                 <div class="card">
                     <span class="emoji-big">🔍</span>
-                    <h3>獨特外型特徵</h3>
-                    <p>
-                        照片中的勺嘴鹬擁有<b>獨一無二的「勺子」嘴喙</b>，嘴基寬厚，尖端呈鏟狀。<br><br>
-                        繁殖季（夏羽）時，牠的頭部、頸部及胸側會呈現<b>溫暖的紅褐色</b>，背部的黑褐色縱紋間點綴著金黃色斑點，腹部則為純白色。雙腿和腳趾呈現灰黑色，體態嬌小。
+                    <h3 data-i18n="feature_title">独有外形特征</h3>
+                    <p data-i18n="feature_desc">
+                        照片中的勺嘴鹬拥有<b>独一无二的「勺子」嘴喙</b>，嘴基宽厚，尖端呈铲状。<br><br>
+                        繁殖季（夏羽）时，牠的头部、颈部及胸侧会呈现<b>温暖的红褐色</b>，背部的黑褐色纵纹间点缀着金黄色斑点，腹部则为纯白色。双腿和脚趾呈现灰黑色，体态娇小。
                     </p>
                 </div>
                 <div class="card">
                     <span class="emoji-big">🌊</span>
-                    <h3>棲地與生活習性</h3>
-                    <p>
-                        勺嘴鹬主要棲息於<b>沿海泥灘、河口潮間帶</b>和紅樹林濕地。<br><br>
-                        覓食時，牠們會利用獨特的鏟狀嘴喙，在淺水和泥灘中<b>左右來回快速掃動</b>，以此篩選並捕食小蝦、蠕蟲和昆蟲。是東亞-澳大利西亞遷飛路線上極具代表性的候鳥，被譽為<b>「鳥類熊貓」</b>。
+                    <h3 data-i18n="habitat_title">栖息与生活习性</h3>
+                    <p data-i18n="habitat_desc">
+                        勺嘴鹬主要栖息于<b>沿海泥滩、河口潮间带</b>和红树林湿地。<br><br>
+                        觅食时，牠们会利用独特的铲状嘴喙，在浅水和泥滩中<b>左右来回快速扫动</b>，以此筛选并捕食小虾、蠕虫和昆虫。是东亚-澳大利西亚迁飞路线上极具代表性的候鸟，被誉为<b>「鸟类熊猫」</b>。
                     </p>
                 </div>
             </div>
@@ -624,28 +568,26 @@
 
         <!-- 2. 保护区 & 工程威胁 -->
         <section class="section">
-            <h2 class="section-title center">⚠️ 保护区 · 危在旦夕</h2>
+            <h2 class="section-title center" data-i18n="danger_title">⚠️ 保护区 · 危在旦夕</h2>
 
             <div class="protect-block">
-                <h3>
-                    <span>🌾</span> 野生动物保护区 · 最后防线
-                </h3>
-                <p>
+                <h3><span>🌾</span> <span data-i18n="protect_head">野生动物保护区 · 最后防线</span></h3>
+                <p data-i18n="protect_desc1">
                     现有的保护区是勺嘴鹬等数千种候鸟的 <span class="strong">生命线</span>。
                     这里不仅养育着“小勺子”，也是 <strong>东亚—澳大利西亚</strong> 迁飞通道上不可替代的节点。
                 </p>
-                <p style="margin-top:0.6rem; font-size:0.98rem; background:rgba(255,255,240,0.25); padding:0.4rem 1rem; border-radius:40px; display:inline-block;">
+                <p style="margin-top:0.6rem; font-size:0.98rem; background:rgba(255,255,240,0.25); padding:0.4rem 1rem; border-radius:40px; display:inline-block;" data-i18n="protect_desc2">
                     🌏 国际重要湿地 · 生物多样性热点
                 </p>
             </div>
 
             <div class="callout-danger">
-                <h4>🚧  G228 工程 · 不可承受之重</h4>
-                <p>
+                <h4>🚧 <span data-i18n="g228_head">G228 工程 · 不可承受之重</span></h4>
+                <p data-i18n="g228_desc1">
                     <strong>G228 工程</strong> 若强行上马，将直接切割、填埋大片核心滩涂，
                     导致保护区 <strong>生态功能丧失</strong>。勺嘴鹬的觅食地、夜栖地将永久消失。
                 </p>
-                <p style="margin-top:0.8rem; background:rgba(160,80,60,0.06); padding:0.6rem 1.2rem; border-radius:30px; border-left:3px solid #b35d4a;">
+                <p style="margin-top:0.8rem; background:rgba(160,80,60,0.06); padding:0.6rem 1.2rem; border-radius:30px; border-left:3px solid #b35d4a;" data-i18n="g228_desc2">
                     <span style="font-weight:600;">📢 我们坚决反对</span> —— 以“发展”之名，行生态破坏之实。
                 </p>
             </div>
@@ -654,112 +596,99 @@
             <div class="stat-row">
                 <div class="stat-item">
                     <div class="number">约 <span id="countBirds">440</span> <span class="small">只</span></div>
-                    <div class="label">全球勺嘴鹬成年个体估算</div>
+                    <div class="label" data-i18n="stat1">全球勺嘴鹬成年个体估算</div>
                 </div>
                 <div class="stat-item">
                     <div class="number"><span id="countArea">12,400</span> <span class="small">公顷</span></div>
-                    <div class="label">保护区核心面积</div>
+                    <div class="label" data-i18n="stat2">保护区核心面积</div>
                 </div>
                 <div class="stat-item">
                     <div class="number"><span id="countSpecies">180</span><span style="font-size:1.8rem;">–</span><span id="countSpecies2">1,860</span> <span class="small">种</span></div>
-                    <div class="label">依赖湿地的鸟类及伴生动物</div>
+                    <div class="label" data-i18n="stat3">依赖湿地的鸟类及伴生动物</div>
                 </div>
             </div>
-            <p style="text-align:center; font-size:0.9rem; color:#5e735f; margin-top:-0.5rem;">
+            <p style="text-align:center; font-size:0.9rem; color:#5e735f; margin-top:-0.5rem;" data-i18n="stat_note">
                 * 数据源自近年调查，每一只都弥足珍贵
             </p>
         </section>
 
         <!-- 3. 呼吁 & 行动 -->
         <section class="section" style="border-bottom: none;">
-            <h2 class="section-title center">✊ 为牠发声 · 即刻行动</h2>
+            <h2 class="section-title center" data-i18n="action_title">✊ 为牠发声 · 即刻行动</h2>
 
             <div style="max-width:750px; margin:1.8rem auto 0; text-align:center;">
-                <p style="font-size:1.15rem; color:#2f4a3b;">
+                <p style="font-size:1.15rem; color:#2f4a3b;" data-i18n="action_desc">
                     不要让“小勺子”成为历史。<br />
                     保护区的存在，关乎的不只是一种鸟，而是 <strong>人与自然</strong> 的承诺。
                 </p>
             </div>
 
             <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem 2.5rem; margin:2.2rem 0 1.5rem;">
-                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;">
-                    🗣️ 转发 · 让更多人看见
-                </div>
-                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;">
-                    📋 联署 · 反对破坏性工程
-                </div>
-                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;">
-                    🌱 支持湿地保护组织
-                </div>
+                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;" data-i18n="act1">🗣️ 转发 · 让更多人看见</div>
+                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;" data-i18n="act2">📋 联署 · 反对破坏性工程</div>
+                <div style="background:#ebf1eb; border-radius:60px; padding:0.5rem 1.8rem; font-size:1rem;" data-i18n="act3">🌱 支持湿地保护组织</div>
             </div>
 
             <div class="action-area">
-                <a href="#" class="btn" id="signBtn">✏️ 签署守护承诺</a>
-                <a href="#" class="btn btn-outline" id="shareBtn">🕊️ 分享给朋友</a>
+                <a href="#" class="btn" id="signBtn">✏️ <span data-i18n="btn_sign">签署守护承诺</span></a>
+                <a href="#" class="btn btn-outline" id="shareBtn">🕊️ <span data-i18n="btn_share">分享给朋友</span></a>
             </div>
             <p style="text-align:center; font-size:0.92rem; color:#56755f; margin-top:1.2rem;">
-                <span class="hearts">❤️</span> 每一份声音，都是保护区的力量 <span class="hearts">❤️</span>
+                <span class="hearts">❤️</span> <span data-i18n="footer_mid">每一份声音，都是保护区的力量</span> <span class="hearts">❤️</span>
             </p>
         </section>
 
         <!-- ====== 小勺子的历史 ====== -->
         <section class="section" style="border-bottom: none; padding-top: 2rem;">
-            <h2 class="section-title center">📜 小勺子的历史 · 从发现到濒危</h2>
+            <h2 class="section-title center" data-i18n="history_title">📜 小勺子的历史 · 从发现到濒危</h2>
             <div class="timeline">
-                <!-- 事件1 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">1758年</div>
-                        <p>林奈在《自然系统》中首次对勺嘴鹬进行科学描述，当时种群数量尚属常见。</p>
+                        <div class="year">1758</div>
+                        <p data-i18n="hist1">林奈在《自然系统》中首次对勺嘴鹬进行科学描述，当时种群数量尚属常见。</p>
                     </div>
                 </div>
-                <!-- 事件2 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">19世纪</div>
-                        <p>大量猎捕与滩涂围垦使数量开始下降，但全球仍有数千只。</p>
+                        <div class="year">19<span data-i18n="century">世纪</span></div>
+                        <p data-i18n="hist2">大量猎捕与滩涂围垦使数量开始下降，但全球仍有数千只。</p>
                     </div>
                 </div>
-                <!-- 事件3 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">1970年代</div>
-                        <p>繁殖地（俄罗斯楚科奇）与越冬地（东南亚）的破坏导致种群锐减至约2000对。</p>
+                        <div class="year">1970<span data-i18n="decade">年代</span></div>
+                        <p data-i18n="hist3">繁殖地（俄罗斯楚科奇）与越冬地（东南亚）的破坏导致种群锐减至约2000对。</p>
                     </div>
                 </div>
-                <!-- 事件4 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">2000年</div>
-                        <p>全球数量估计不足1000对，IUCN将其列为濒危（EN）等级。</p>
+                        <div class="year">2000</div>
+                        <p data-i18n="hist4">全球数量估计不足1000对，IUCN将其列为濒危（EN）等级。</p>
                     </div>
                 </div>
-                <!-- 事件5 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">2010年</div>
-                        <p>极度濒危（CR）—— 全球成年个体仅约400只，成为世界上最稀有的水鸟之一。</p>
+                        <div class="year">2010</div>
+                        <p data-i18n="hist5">极度濒危（CR）—— 全球成年个体仅约400只，成为世界上最稀有的水鸟之一。</p>
                     </div>
                 </div>
-                <!-- 事件6 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="year">2015年至今</div>
-                        <p>中国黄海湿地成为关键停歇地，保护区设立；但G228等工程威胁仍在，保护行动刻不容缓。</p>
+                        <div class="year">2015<span data-i18n="now">至今</span></div>
+                        <p data-i18n="hist6">中国黄海湿地成为关键停歇地，保护区设立；但G228等工程威胁仍在，保护行动刻不容缓。</p>
                     </div>
                 </div>
             </div>
-            <p style="text-align:center; font-size:0.95rem; color:#4f6e5b; margin-top:1rem;">
+            <p style="text-align:center; font-size:0.95rem; color:#4f6e5b; margin-top:1rem;" data-i18n="history_foot">
                 ⏳ 每一个时间点都记录着“小勺子”的生存危机，也提醒我们行动的必要。
             </p>
         </section>
-        <!-- ====== 历史板块结束 ====== -->
 
     </div>
 
@@ -767,19 +696,180 @@
     <footer class="footer">
         <p>
             <span style="font-size:1.4rem; display:inline-block; margin-right:0.4rem;">🥄</span>
-            为小勺子发声 · 守护湿地 · 拒绝 G228 工程破坏
+            <span data-i18n="footer_title">为小勺子发声 · 守护湿地 · 拒绝 G228 工程破坏</span>
         </p>
-        <p style="margin-top:0.4rem; font-size:0.85rem; opacity:0.7;">
+        <p style="margin-top:0.4rem; font-size:0.85rem; opacity:0.7;" data-i18n="footer_note">
             本页面为公益倡导 · 所有数据仅供示意 · 真实保护行动请关注专业机构
         </p>
-        <p style="margin-top:0.8rem; font-size:0.8rem; opacity:0.5;">
+        <p style="margin-top:0.8rem; font-size:0.8rem; opacity:0.5;" data-i18n="footer_last">
             🌿 人与自然 · 和谐共生
         </p>
     </footer>
 
     <script>
-        (function() {
-            // —— 动态数字增长 ——
+        // —— 多语言字典 ——
+        const i18n = {
+            'zh-CN': {
+                hero_title: '为<span class="highlight">小勺子</span>发声',
+                hero_sub: '🥄 勺嘴鹬 · 湿地精灵 · 极度濒危',
+                hero_tag: '⚠️ 反对 G228 工程 · 守护最后的家园',
+                hero_desc: '牠们不是数字，是生命。',
+                about_title: '🥄 认识「小勺子」',
+                feature_title: '独有外形特征',
+                feature_desc: '照片中的勺嘴鹬拥有<b>独一无二的「勺子」嘴喙</b>，嘴基宽厚，尖端呈铲状。<br><br>繁殖季（夏羽）时，牠的头部、颈部及胸侧会呈现<b>温暖的红褐色</b>，背部的黑褐色纵纹间点缀着金黄色斑点，腹部则为纯白色。双腿和脚趾呈现灰黑色，体态娇小。',
+                habitat_title: '栖息与生活习性',
+                habitat_desc: '勺嘴鹬主要栖息于<b>沿海泥滩、河口潮间带</b>和红树林湿地。<br><br>觅食时，牠们会利用独特的铲状嘴喙，在浅水和泥滩中<b>左右来回快速扫动</b>，以此筛选并捕食小虾、蠕虫和昆虫。是东亚-澳大利西亚迁飞路线上极具代表性的候鸟，被誉为<b>「鸟类熊猫」</b>。',
+                danger_title: '⚠️ 保护区 · 危在旦夕',
+                protect_head: '野生动物保护区 · 最后防线',
+                protect_desc1: '现有的保护区是勺嘴鹬等数千种候鸟的 <span class="strong">生命线</span>。这里不仅养育着“小勺子”，也是 <strong>东亚—澳大利西亚</strong> 迁飞通道上不可替代的节点。',
+                protect_desc2: '🌏 国际重要湿地 · 生物多样性热点',
+                g228_head: 'G228 工程 · 不可承受之重',
+                g228_desc1: '<strong>G228 工程</strong> 若强行上马，将直接切割、填埋大片核心滩涂，导致保护区 <strong>生态功能丧失</strong>。勺嘴鹬的觅食地、夜栖地将永久消失。',
+                g228_desc2: '<span style="font-weight:600;">📢 我们坚决反对</span> —— 以“发展”之名，行生态破坏之实。',
+                stat1: '全球勺嘴鹬成年个体估算',
+                stat2: '保护区核心面积',
+                stat3: '依赖湿地的鸟类及伴生动物',
+                stat_note: '* 数据源自近年调查，每一只都弥足珍贵',
+                action_title: '✊ 为牠发声 · 即刻行动',
+                action_desc: '不要让“小勺子”成为历史。<br />保护区的存在，关乎的不只是一种鸟，而是 <strong>人与自然</strong> 的承诺。',
+                act1: '🗣️ 转发 · 让更多人看见',
+                act2: '📋 联署 · 反对破坏性工程',
+                act3: '🌱 支持湿地保护组织',
+                btn_sign: '签署守护承诺',
+                btn_share: '分享给朋友',
+                footer_mid: '每一份声音，都是保护区的力量',
+                history_title: '📜 小勺子的历史 · 从发现到濒危',
+                century: '世纪',
+                decade: '年代',
+                hist1: '林奈在《自然系统》中首次对勺嘴鹬进行科学描述，当时种群数量尚属常见。',
+                hist2: '大量猎捕与滩涂围垦使数量开始下降，但全球仍有数千只。',
+                hist3: '繁殖地（俄罗斯楚科奇）与越冬地（东南亚）的破坏导致种群锐减至约2000对。',
+                hist4: '全球数量估计不足1000对，IUCN将其列为濒危（EN）等级。',
+                hist5: '极度濒危（CR）—— 全球成年个体仅约400只，成为世界上最稀有的水鸟之一。',
+                now: '至今',
+                hist6: '中国黄海湿地成为关键停歇地，保护区设立；但G228等工程威胁仍在，保护行动刻不容缓。',
+                history_foot: '⏳ 每一个时间点都记录着“小勺子”的生存危机，也提醒我们行动的必要。',
+                footer_title: '为小勺子发声 · 守护湿地 · 拒绝 G228 工程破坏',
+                footer_note: '本页面为公益倡导 · 所有数据仅供示意 · 真实保护行动请关注专业机构',
+                footer_last: '🌿 人与自然 · 和谐共生'
+            },
+            'zh-TW': {
+                hero_title: '為<span class="highlight">小勺子</span>發聲',
+                hero_sub: '🥄 勺嘴鷸 · 濕地精靈 · 極度瀕危',
+                hero_tag: '⚠️ 反對 G228 工程 · 守護最後的家園',
+                hero_desc: '牠們不是數字，是生命。',
+                about_title: '🥄 認識「小勺子」',
+                feature_title: '獨有外形特徵',
+                feature_desc: '照片中的勺嘴鷸擁有<b>獨一無二的「勺子」嘴喙</b>，嘴基寬厚，尖端呈鏟狀。<br><br>繁殖季（夏羽）時，牠的頭部、頸部及胸側會呈現<b>溫暖的紅褐色</b>，背部的黑褐色縱紋間點綴著金黃色斑點，腹部則為純白色。雙腿和腳趾呈現灰黑色，體態嬌小。',
+                habitat_title: '棲息與生活習性',
+                habitat_desc: '勺嘴鷸主要棲息於<b>沿海泥灘、河口潮間帶</b>和紅樹林濕地。<br><br>覓食時，牠們會利用獨特的鏟狀嘴喙，在淺水和泥灘中<b>左右來回快速掃動</b>，以此篩選並捕食小蝦、蠕蟲和昆蟲。是東亞-澳大利西亞遷飛路線上極具代表性的候鳥，被譽為<b>「鳥類熊貓」</b>。',
+                danger_title: '⚠️ 保護區 · 危在旦夕',
+                protect_head: '野生動物保護區 · 最後防線',
+                protect_desc1: '現有的保護區是勺嘴鷸等數千種候鳥的 <span class="strong">生命線</span>。這裡不僅養育著「小勺子」，也是 <strong>東亞—澳大利西亞</strong> 遷飛通道上不可替代的節點。',
+                protect_desc2: '🌏 國際重要濕地 · 生物多樣性熱點',
+                g228_head: 'G228 工程 · 不可承受之重',
+                g228_desc1: '<strong>G228 工程</strong> 若強行上馬，將直接切割、填埋大片核心灘塗，導致保護區 <strong>生態功能喪失</strong>。勺嘴鷸的覓食地、夜棲地將永久消失。',
+                g228_desc2: '<span style="font-weight:600;">📢 我們堅決反對</span> —— 以「發展」之名，行生態破壞之實。',
+                stat1: '全球勺嘴鷸成年個體估算',
+                stat2: '保護區核心面積',
+                stat3: '依賴濕地的鳥類及伴生動物',
+                stat_note: '* 數據源自近年調查，每一隻都彌足珍貴',
+                action_title: '✊ 為牠發聲 · 即刻行動',
+                action_desc: '不要讓「小勺子」成為歷史。<br />保護區的存在，關乎的不只是一種鳥，而是 <strong>人與自然</strong> 的承諾。',
+                act1: '🗣️ 轉發 · 讓更多人看見',
+                act2: '📋 聯署 · 反對破壞性工程',
+                act3: '🌱 支持濕地保護組織',
+                btn_sign: '簽署守護承諾',
+                btn_share: '分享給朋友',
+                footer_mid: '每一份聲音，都是保護區的力量',
+                history_title: '📜 小勺子的歷史 · 從發現到瀕危',
+                century: '世紀',
+                decade: '年代',
+                hist1: '林奈在《自然系統》中首次對勺嘴鷸進行科學描述，當時種群數量尚屬常見。',
+                hist2: '大量獵捕與灘塗圍墾使數量開始下降，但全球仍有數千隻。',
+                hist3: '繁殖地（俄羅斯楚科奇）與越冬地（東南亞）的破壞導致種群銳減至約2000對。',
+                hist4: '全球數量估計不足1000對，IUCN將其列為瀕危（EN）等級。',
+                hist5: '極度瀕危（CR）—— 全球成年個體僅約400隻，成為世界上最稀有的水鳥之一。',
+                now: '至今',
+                hist6: '中國黃海濕地成為關鍵停歇地，保護區設立；但G228等工程威脅仍在，保護行動刻不容緩。',
+                history_foot: '⏳ 每一個時間點都記錄著「小勺子」的生存危機，也提醒我們行動的必要。',
+                footer_title: '為小勺子發聲 · 守護濕地 · 拒絕 G228 工程破壞',
+                footer_note: '本頁面為公益倡導 · 所有數據僅供示意 · 真實保護行動請關注專業機構',
+                footer_last: '🌿 人與自然 · 和諧共生'
+            },
+            'en': {
+                hero_title: 'Speak for the <span class="highlight">Spoonie</span>',
+                hero_sub: '🥄 Spoon-billed Sandpiper · Wetland Spirit · Critically Endangered',
+                hero_tag: '⚠️ Oppose G228 Project · Protect the Last Home',
+                hero_desc: 'They are not numbers. They are lives.',
+                about_title: '🥄 Meet the "Spoonie"',
+                feature_title: 'Distinctive Features',
+                feature_desc: 'The Spoon-billed Sandpiper in the photo has a <b>unique "spoon-shaped" bill</b>, with a broad base and a shovel-like tip.<br><br>During the breeding season (summer plumage), its head, neck, and breast display a <b>warm rufous-brown color</b>. The dark brown streaks on its back are speckled with golden spots, while the belly is pure white. Its legs and toes are grey-black, giving it a petite appearance.',
+                habitat_title: 'Habitat & Behavior',
+                habitat_desc: 'It primarily inhabits <b>coastal mudflats, estuarine intertidal zones</b>, and mangrove wetlands.<br><br>While foraging, it uses its unique spoon-shaped bill to <b>rapidly sweep side to side</b> in shallow water and mud, sifting for small shrimp, worms, and insects. It is an iconic migratory bird on the East Asian-Australasian Flyway, often called the <b>"Panda of Birds"</b>.',
+                danger_title: '⚠️ Reserve · At Risk',
+                protect_head: 'Wildlife Reserve · The Last Line of Defense',
+                protect_desc1: 'The current reserve is the <span class="strong">lifeline</span> for the Spoon-billed Sandpiper and thousands of migratory birds. It not only nurtures the "Spoonie" but is also an irreplaceable node on the <strong>East Asian-Australasian</strong> Flyway.',
+                protect_desc2: '🌏 Internationally Important Wetland · Biodiversity Hotspot',
+                g228_head: 'G228 Project · An Unbearable Burden',
+                g228_desc1: 'If the <strong>G228 Project</strong> proceeds, it will directly cut through and reclaim large areas of core mudflats, resulting in the <strong>loss of ecological function</strong> in the reserve. The foraging and roosting grounds of the Spoon-billed Sandpiper will disappear forever.',
+                g228_desc2: '<span style="font-weight:600;">📢 We firmly oppose it</span> — destroying ecology in the name of "development."',
+                stat1: 'Estimated global adult Spoon-billed Sandpipers',
+                stat2: 'Core area of the reserve',
+                stat3: 'Bird and associated species relying on the wetland',
+                stat_note: '* Data from recent surveys, every single bird is precious.',
+                action_title: '✊ Speak Up · Act Now',
+                action_desc: 'Do not let the "Spoonie" become history.<br />The reserve\'s existence is not just about one bird, but a promise between <strong>humanity and nature</strong>.',
+                act1: '🗣️ Share · Spread the Word',
+                act2: '📋 Petition · Oppose destructive projects',
+                act3: '🌱 Support wetland conservation organizations',
+                btn_sign: 'Sign the Petition',
+                btn_share: 'Share with Friends',
+                footer_mid: 'Every voice counts for the reserve',
+                history_title: '📜 History of the Spoonie · From Discovery to Crisis',
+                century: 'th Century',
+                decade: 's',
+                hist1: 'Linnaeus first scientifically described the Spoon-billed Sandpiper in *Systema Naturae*. The population was relatively common at the time.',
+                hist2: 'Extensive hunting and tidal flat reclamation began to reduce numbers, though thousands still remained globally.',
+                hist3: 'Habitat destruction in breeding grounds (Chukotka, Russia) and wintering grounds (Southeast Asia) caused a sharp decline to about 2,000 pairs.',
+                hist4: 'Global population estimated at under 1,000 pairs. IUCN listed it as Endangered (EN).',
+                hist5: 'Critically Endangered (CR) — Only about 400 mature individuals remain globally, making it one of the rarest waterbirds in the world.',
+                now: '–Present',
+                hist6: 'The Yellow Sea wetlands in China became a critical staging area and a reserve was established. However, threats like the G228 project persist, requiring urgent action.',
+                history_foot: '⏳ Every point in time records the survival crisis of the "Spoonie" and reminds us of the urgency to act.',
+                footer_title: 'Speak for the Spoonie · Protect the Wetlands · Stop G228 Destruction',
+                footer_note: 'This page is for public advocacy. Data is for illustration only. Please support professional conservation organizations.',
+                footer_last: '🌿 Harmony between Humanity and Nature'
+            }
+        };
+
+        // —— 设置语言 ——
+        function setLanguage(lang) {
+            // 更新按钮状态
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+
+            // 替换所有文本
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key] !== undefined) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+
+            // 保存语言偏好
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // —— 初始化 ——
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLang') || 'zh-CN';
+            setLanguage(savedLang);
+            
+            // 数字动画
             function animateNumber(el, target, duration = 2000) {
                 let start = 0;
                 const step = Math.ceil(target / 60);
@@ -793,27 +883,21 @@
                     el.textContent = start.toLocaleString();
                 }, interval);
             }
+            animateNumber(document.getElementById('countBirds'), 440, 2200);
+            animateNumber(document.getElementById('countArea'), 12400, 2400);
+            animateNumber(document.getElementById('countSpecies'), 180, 1500);
+            animateNumber(document.getElementById('countSpecies2'), 1860, 2200);
 
-            window.addEventListener('load', function() {
-                const birdEl = document.getElementById('countBirds');
-                const areaEl = document.getElementById('countArea');
-                const speciesEl = document.getElementById('countSpecies');
-                const speciesEl2 = document.getElementById('countSpecies2');
-                if (birdEl) animateNumber(birdEl, 440, 2200);
-                if (areaEl) animateNumber(areaEl, 12400, 2400);
-                if (speciesEl) animateNumber(speciesEl, 180, 1500);
-                if (speciesEl2) animateNumber(speciesEl2, 1860, 2200);
-            });
-
-            // —— 按钮交互 ——
+            // 按钮交互
             const signBtn = document.getElementById('signBtn');
             const shareBtn = document.getElementById('shareBtn');
 
             if (signBtn) {
                 signBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    alert('🌱 感谢您签署守护承诺！\n每一份支持都是“小勺子”活下去的希望。');
-                    this.textContent = '✅ 已签署';
+                    const msg = i18n[localStorage.getItem('preferredLang') || 'zh-CN']['btn_sign'] || '签署守护承诺';
+                    alert('🌱 感谢您' + msg + '！\n每一份支持都是“小勺子”活下去的希望。');
+                    this.innerHTML = '✅ ' + msg;
                     this.style.background = '#4d7a62';
                     this.style.cursor = 'default';
                     this.style.pointerEvents = 'none';
@@ -844,12 +928,7 @@
                     }
                 });
             }
-
-            console.log('%c 🥄 为小勺子发声 · 拒绝G228工程 ',
-                'background:#2f5a47; color:#f0f7ef; font-size:16px; padding:10px 18px; border-radius:30px; font-weight:bold;'
-                );
-            console.log('%c 每一只勺嘴鹬都值得被看见。', 'color:#3d6b55; font-size:13px;');
-        })();
+        });
     </script>
 
 </body>
