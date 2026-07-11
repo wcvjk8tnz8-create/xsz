@@ -32,17 +32,17 @@
             border-radius: 6px;
         }
 
-        /* —— 语言切换器 —— */
+        /* —— 语言切换器 (改为固定悬浮) —— */
         .lang-switcher {
-            position: absolute;
+            position: fixed;        /* ★★★ 关键修改：固定定位，始终在屏幕上 ★★★ */
             top: 20px;
             right: 20px;
-            z-index: 10;
-            background: rgba(255, 250, 245, 0.85);
+            z-index: 999;           /* ★★★ 确保层级最高，不会被遮挡 ★★★ */
+            background: rgba(255, 250, 245, 0.90);
             backdrop-filter: blur(6px);
             border-radius: 30px;
             padding: 0.4rem 0.8rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
             border: 1px solid rgba(255, 248, 240, 0.6);
             display: flex;
             gap: 0.6rem;
@@ -518,7 +518,7 @@
 </head>
 <body>
 
-    <!-- ====== 语言切换 ====== -->
+    <!-- ====== 语言切换 (固定定位，永远可见) ====== -->
     <div class="lang-switcher">
         <button onclick="setLanguage('zh-CN')" id="lang-zh-CN">简体</button>
         <button onclick="setLanguage('zh-TW')" id="lang-zh-TW">繁體</button>
@@ -592,18 +592,28 @@
                 </p>
             </div>
 
-            <!-- 数据 -->
+            <!-- 数据 (修复了单位词未翻译的问题) -->
             <div class="stat-row">
                 <div class="stat-item">
-                    <div class="number">约 <span id="countBirds">440</span> <span class="small">只</span></div>
+                    <div class="number">
+                        <span data-i18n="stat_about">约</span> 
+                        <span id="countBirds">440</span> 
+                        <span class="small" data-i18n="stat_unit_individuals">只</span>
+                    </div>
                     <div class="label" data-i18n="stat1">全球勺嘴鹬成年个体估算</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number"><span id="countArea">12,400</span> <span class="small">公顷</span></div>
+                    <div class="number">
+                        <span id="countArea">12,400</span> 
+                        <span class="small" data-i18n="stat_unit_ha">公顷</span>
+                    </div>
                     <div class="label" data-i18n="stat2">保护区核心面积</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number"><span id="countSpecies">180</span><span style="font-size:1.8rem;">–</span><span id="countSpecies2">1,860</span> <span class="small">种</span></div>
+                    <div class="number">
+                        <span id="countSpecies">180</span><span style="font-size:1.8rem;">–</span><span id="countSpecies2">1,860</span> 
+                        <span class="small" data-i18n="stat_unit_species">种</span>
+                    </div>
                     <div class="label" data-i18n="stat3">依赖湿地的鸟类及伴生动物</div>
                 </div>
             </div>
@@ -726,6 +736,10 @@
                 g228_head: 'G228 工程 · 不可承受之重',
                 g228_desc1: '<strong>G228 工程</strong> 若强行上马，将直接切割、填埋大片核心滩涂，导致保护区 <strong>生态功能丧失</strong>。勺嘴鹬的觅食地、夜栖地将永久消失。',
                 g228_desc2: '<span style="font-weight:600;">📢 我们坚决反对</span> —— 以“发展”之名，行生态破坏之实。',
+                stat_about: '约',
+                stat_unit_individuals: '只',
+                stat_unit_ha: '公顷',
+                stat_unit_species: '种',
                 stat1: '全球勺嘴鹬成年个体估算',
                 stat2: '保护区核心面积',
                 stat3: '依赖湿地的鸟类及伴生动物',
@@ -770,6 +784,10 @@
                 g228_head: 'G228 工程 · 不可承受之重',
                 g228_desc1: '<strong>G228 工程</strong> 若強行上馬，將直接切割、填埋大片核心灘塗，導致保護區 <strong>生態功能喪失</strong>。勺嘴鷸的覓食地、夜棲地將永久消失。',
                 g228_desc2: '<span style="font-weight:600;">📢 我們堅決反對</span> —— 以「發展」之名，行生態破壞之實。',
+                stat_about: '約',
+                stat_unit_individuals: '隻',
+                stat_unit_ha: '公頃',
+                stat_unit_species: '種',
                 stat1: '全球勺嘴鷸成年個體估算',
                 stat2: '保護區核心面積',
                 stat3: '依賴濕地的鳥類及伴生動物',
@@ -814,6 +832,10 @@
                 g228_head: 'G228 Project · An Unbearable Burden',
                 g228_desc1: 'If the <strong>G228 Project</strong> proceeds, it will directly cut through and reclaim large areas of core mudflats, resulting in the <strong>loss of ecological function</strong> in the reserve. The foraging and roosting grounds of the Spoon-billed Sandpiper will disappear forever.',
                 g228_desc2: '<span style="font-weight:600;">📢 We firmly oppose it</span> — destroying ecology in the name of "development."',
+                stat_about: 'Approx.',
+                stat_unit_individuals: 'individuals',
+                stat_unit_ha: 'ha',
+                stat_unit_species: 'species',
                 stat1: 'Estimated global adult Spoon-billed Sandpipers',
                 stat2: 'Core area of the reserve',
                 stat3: 'Bird and associated species relying on the wetland',
@@ -895,7 +917,8 @@
             if (signBtn) {
                 signBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const msg = i18n[localStorage.getItem('preferredLang') || 'zh-CN']['btn_sign'] || '签署守护承诺';
+                    const lang = localStorage.getItem('preferredLang') || 'zh-CN';
+                    const msg = i18n[lang]['btn_sign'] || '签署守护承诺';
                     alert('🌱 感谢您' + msg + '！\n每一份支持都是“小勺子”活下去的希望。');
                     this.innerHTML = '✅ ' + msg;
                     this.style.background = '#4d7a62';
