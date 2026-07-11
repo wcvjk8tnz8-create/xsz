@@ -45,7 +45,6 @@
             text-align: center;
         }
 
-        /* 动态波纹背景 (象征湿地) */
         .hero::before {
             content: '';
             position: absolute;
@@ -68,7 +67,6 @@
             }
         }
 
-        /* 漂浮的 "小勺子" 剪影 (纯CSS) */
         .bird-silhouette {
             position: absolute;
             font-size: 12rem;
@@ -230,6 +228,7 @@
             margin-top: 1.2rem;
         }
 
+        /* ---------- 替換為更詳細的文字介紹 ---------- */
         .card {
             background: #ffffffd9;
             backdrop-filter: blur(4px);
@@ -312,6 +311,98 @@
             margin-top: 0.5rem;
         }
 
+        /* —— 时间轴（历史板块） —— */
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+            margin: 2rem 0 1rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #6f9a86, #b8c9b8);
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 3rem;
+            position: relative;
+            margin-bottom: 2.8rem;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 3rem;
+            margin-left: 50%;
+        }
+        .timeline-item .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0.2rem;
+            width: 18px;
+            height: 18px;
+            background: #4f7b68;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 3px solid #f7f2eb;
+            box-shadow: 0 0 0 3px #4f7b68;
+            z-index: 2;
+        }
+        .timeline-item .timeline-content {
+            background: #ffffffec;
+            backdrop-filter: blur(4px);
+            padding: 1.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(60, 70, 60, 0.06);
+            border: 1px solid rgba(200, 190, 175, 0.2);
+            width: 100%;
+            max-width: 380px;
+            transition: transform 0.2s;
+        }
+        .timeline-item .timeline-content:hover {
+            transform: scale(1.02);
+        }
+        .timeline-item .timeline-content .year {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #2f5a47;
+            display: inline-block;
+            background: rgba(79, 123, 104, 0.10);
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.3rem;
+        }
+        .timeline-item .timeline-content p {
+            color: #3d5045;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+        @media (max-width: 720px) {
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 3.5rem !important;
+                padding-right: 0 !important;
+                margin-left: 0 !important;
+                justify-content: flex-start !important;
+            }
+            .timeline-item .timeline-dot {
+                left: 20px;
+            }
+            .timeline-item .timeline-content {
+                max-width: 100%;
+            }
+        }
+
         /* —— 签名 / 行动 —— */
         .action-area {
             text-align: center;
@@ -351,7 +442,7 @@
             box-shadow: 0 8px 20px rgba(47, 90, 71, 0.20);
         }
 
-        /* —— 计数器 (象征性) —— */
+        /* —— 计数器 —— */
         .stat-row {
             display: flex;
             flex-wrap: wrap;
@@ -470,7 +561,6 @@
             opacity: 0.7;
         }
 
-        /* 小勺子特写装饰 */
         .spoon-icon {
             display: inline-block;
             font-size: 1.8rem;
@@ -483,7 +573,6 @@
 
     <!-- ====== 英雄区 ====== -->
     <section class="hero">
-        <!-- 漂浮剪影 -->
         <div class="bird-silhouette">🐦</div>
         <div class="bird-silhouette">🦆</div>
         <div class="bird-silhouette">🐧</div>
@@ -510,24 +599,24 @@
     <!-- ====== 主内容 ====== -->
     <div class="container">
 
-        <!-- 1. 关于小勺子 -->
+        <!-- 1. 關於小勺子（改為詳細文字介紹） -->
         <section class="section">
-            <h2 class="section-title center">🥄 谁是「小勺子」？</h2>
+            <h2 class="section-title center">🥄 認識「小勺子」</h2>
             <div class="grid-2">
                 <div class="card">
-                    <span class="emoji-big">🐦</span>
-                    <h3>勺嘴鹬</h3>
+                    <span class="emoji-big">🔍</span>
+                    <h3>獨特外型特徵</h3>
                     <p>
-                        <strong>勺嘴鹬</strong>（Spoon-billed Sandpiper）是一种小型涉禽，因嘴基宽厚、末端呈勺子状而得名。
-                        全球成年个体数量不足 <strong>500 只</strong>，是世界上最濒危的鸟类之一。
+                        照片中的勺嘴鹬擁有<b>獨一無二的「勺子」嘴喙</b>，嘴基寬厚，尖端呈鏟狀。<br><br>
+                        繁殖季（夏羽）時，牠的頭部、頸部及胸側會呈現<b>溫暖的紅褐色</b>，背部的黑褐色縱紋間點綴著金黃色斑點，腹部則為純白色。雙腿和腳趾呈現灰黑色，體態嬌小。
                     </p>
                 </div>
                 <div class="card">
-                    <span class="emoji-big">🏝️</span>
-                    <h3>栖息地</h3>
+                    <span class="emoji-big">🌊</span>
+                    <h3>棲地與生活習性</h3>
                     <p>
-                        每年迁徙途经中国东部沿海，在 <strong>黄海湿地</strong> 停歇、换羽。
-                        江苏、山东等地的滩涂是牠们至关重要的 <strong>“加油站”</strong>，一旦丧失，整个种群将面临崩溃。
+                        勺嘴鹬主要棲息於<b>沿海泥灘、河口潮間帶</b>和紅樹林濕地。<br><br>
+                        覓食時，牠們會利用獨特的鏟狀嘴喙，在淺水和泥灘中<b>左右來回快速掃動</b>，以此篩選並捕食小蝦、蠕蟲和昆蟲。是東亞-澳大利西亞遷飛路線上極具代表性的候鳥，被譽為<b>「鳥類熊貓」</b>。
                     </p>
                 </div>
             </div>
@@ -543,7 +632,7 @@
                 </h3>
                 <p>
                     现有的保护区是勺嘴鹬等数千种候鸟的 <span class="strong">生命线</span>。
-                    这里不仅养育着“小勺子”，也是 <strong>东亚—澳大利亚</strong> 迁飞通道上不可替代的节点。
+                    这里不仅养育着“小勺子”，也是 <strong>东亚—澳大利西亚</strong> 迁飞通道上不可替代的节点。
                 </p>
                 <p style="margin-top:0.6rem; font-size:0.98rem; background:rgba(255,255,240,0.25); padding:0.4rem 1rem; border-radius:40px; display:inline-block;">
                     🌏 国际重要湿地 · 生物多样性热点
@@ -561,10 +650,10 @@
                 </p>
             </div>
 
-            <!-- 象征性数据 -->
+            <!-- 数据 -->
             <div class="stat-row">
                 <div class="stat-item">
-                    <div class="number"><span id="countBirds">443</span> <span class="small">只</span></div>
+                    <div class="number">约 <span id="countBirds">440</span> <span class="small">只</span></div>
                     <div class="label">全球勺嘴鹬成年个体估算</div>
                 </div>
                 <div class="stat-item">
@@ -613,6 +702,65 @@
             </p>
         </section>
 
+        <!-- ====== 小勺子的历史 ====== -->
+        <section class="section" style="border-bottom: none; padding-top: 2rem;">
+            <h2 class="section-title center">📜 小勺子的历史 · 从发现到濒危</h2>
+            <div class="timeline">
+                <!-- 事件1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">1758年</div>
+                        <p>林奈在《自然系统》中首次对勺嘴鹬进行科学描述，当时种群数量尚属常见。</p>
+                    </div>
+                </div>
+                <!-- 事件2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">19世纪</div>
+                        <p>大量猎捕与滩涂围垦使数量开始下降，但全球仍有数千只。</p>
+                    </div>
+                </div>
+                <!-- 事件3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">1970年代</div>
+                        <p>繁殖地（俄罗斯楚科奇）与越冬地（东南亚）的破坏导致种群锐减至约2000对。</p>
+                    </div>
+                </div>
+                <!-- 事件4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">2000年</div>
+                        <p>全球数量估计不足1000对，IUCN将其列为濒危（EN）等级。</p>
+                    </div>
+                </div>
+                <!-- 事件5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">2010年</div>
+                        <p>极度濒危（CR）—— 全球成年个体仅约400只，成为世界上最稀有的水鸟之一。</p>
+                    </div>
+                </div>
+                <!-- 事件6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year">2015年至今</div>
+                        <p>中国黄海湿地成为关键停歇地，保护区设立；但G228等工程威胁仍在，保护行动刻不容缓。</p>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; font-size:0.95rem; color:#4f6e5b; margin-top:1rem;">
+                ⏳ 每一个时间点都记录着“小勺子”的生存危机，也提醒我们行动的必要。
+            </p>
+        </section>
+        <!-- ====== 历史板块结束 ====== -->
+
     </div>
 
     <!-- ====== 脚注 ====== -->
@@ -631,7 +779,7 @@
 
     <script>
         (function() {
-            // —— 动态数字增长 (象征性) ——
+            // —— 动态数字增长 ——
             function animateNumber(el, target, duration = 2000) {
                 let start = 0;
                 const step = Math.ceil(target / 60);
@@ -646,27 +794,25 @@
                 }, interval);
             }
 
-            // 页面加载后启动动画
             window.addEventListener('load', function() {
                 const birdEl = document.getElementById('countBirds');
                 const areaEl = document.getElementById('countArea');
                 const speciesEl = document.getElementById('countSpecies');
                 const speciesEl2 = document.getElementById('countSpecies2');
-                if (birdEl) animateNumber(birdEl, 443, 2200);
+                if (birdEl) animateNumber(birdEl, 440, 2200);
                 if (areaEl) animateNumber(areaEl, 12400, 2400);
                 if (speciesEl) animateNumber(speciesEl, 180, 1500);
                 if (speciesEl2) animateNumber(speciesEl2, 1860, 2200);
             });
 
-            // —— 按钮交互（模拟） ——
+            // —— 按钮交互 ——
             const signBtn = document.getElementById('signBtn');
             const shareBtn = document.getElementById('shareBtn');
 
             if (signBtn) {
                 signBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const msg = '🌱 感谢您签署守护承诺！\n每一份支持都是“小勺子”活下去的希望。';
-                    alert(msg);
+                    alert('🌱 感谢您签署守护承诺！\n每一份支持都是“小勺子”活下去的希望。');
                     this.textContent = '✅ 已签署';
                     this.style.background = '#4d7a62';
                     this.style.cursor = 'default';
@@ -699,7 +845,6 @@
                 });
             }
 
-            // —— 控制台彩蛋 ——
             console.log('%c 🥄 为小勺子发声 · 拒绝G228工程 ',
                 'background:#2f5a47; color:#f0f7ef; font-size:16px; padding:10px 18px; border-radius:30px; font-weight:bold;'
                 );
