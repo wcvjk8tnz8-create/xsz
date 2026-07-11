@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>为小勺子发声 · 守护勺嘴鹬</title>
+    <!-- 标题标签，现在可以随语言切换 -->
+    <title id="page-title" data-i18n="page_title">为小勺子发声 · 守护勺嘴鹬</title>
     <style>
         /* —— 全局重置 & 字体 —— */
         * {
@@ -32,12 +33,12 @@
             border-radius: 6px;
         }
 
-        /* —— 语言切换器 (改为固定悬浮) —— */
+        /* —— 语言切换器 (固定悬浮) —— */
         .lang-switcher {
-            position: fixed;        /* ★★★ 关键修改：固定定位，始终在屏幕上 ★★★ */
+            position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 999;           /* ★★★ 确保层级最高，不会被遮挡 ★★★ */
+            z-index: 999;
             background: rgba(255, 250, 245, 0.90);
             backdrop-filter: blur(6px);
             border-radius: 30px;
@@ -592,7 +593,7 @@
                 </p>
             </div>
 
-            <!-- 数据 (修复了单位词未翻译的问题) -->
+            <!-- 数据 -->
             <div class="stat-row">
                 <div class="stat-item">
                     <div class="number">
@@ -720,6 +721,7 @@
         // —— 多语言字典 ——
         const i18n = {
             'zh-CN': {
+                page_title: '为小勺子发声 · 守护勺嘴鹬',
                 hero_title: '为<span class="highlight">小勺子</span>发声',
                 hero_sub: '🥄 勺嘴鹬 · 湿地精灵 · 极度濒危',
                 hero_tag: '⚠️ 反对 G228 工程 · 守护最后的家园',
@@ -765,9 +767,12 @@
                 history_foot: '⏳ 每一个时间点都记录着“小勺子”的生存危机，也提醒我们行动的必要。',
                 footer_title: '为小勺子发声 · 守护湿地 · 拒绝 G228 工程破坏',
                 footer_note: '本页面为公益倡导 · 所有数据仅供示意 · 真实保护行动请关注专业机构',
-                footer_last: '🌿 人与自然 · 和谐共生'
+                footer_last: '🌿 人与自然 · 和谐共生',
+                signed_alert: '🌱 感谢您签署守护承诺！\n每一份支持都是“小勺子”活下去的希望。',
+                share_text: '🥄 勺嘴鹬濒临灭绝，请守护湿地，反对G228工程破坏保护区！'
             },
             'zh-TW': {
+                page_title: '為小勺子發聲 · 守護勺嘴鷸',
                 hero_title: '為<span class="highlight">小勺子</span>發聲',
                 hero_sub: '🥄 勺嘴鷸 · 濕地精靈 · 極度瀕危',
                 hero_tag: '⚠️ 反對 G228 工程 · 守護最後的家園',
@@ -813,9 +818,12 @@
                 history_foot: '⏳ 每一個時間點都記錄著「小勺子」的生存危機，也提醒我們行動的必要。',
                 footer_title: '為小勺子發聲 · 守護濕地 · 拒絕 G228 工程破壞',
                 footer_note: '本頁面為公益倡導 · 所有數據僅供示意 · 真實保護行動請關注專業機構',
-                footer_last: '🌿 人與自然 · 和諧共生'
+                footer_last: '🌿 人與自然 · 和諧共生',
+                signed_alert: '🌱 感謝您簽署守護承諾！\n每一份支持都是「小勺子」活下去的希望。',
+                share_text: '🥄 勺嘴鷸瀕臨滅絕，請守護濕地，反對G228工程破壞保護區！'
             },
             'en': {
+                page_title: 'Speak for the Spoonie · Protect the Spoon-billed Sandpiper',
                 hero_title: 'Speak for the <span class="highlight">Spoonie</span>',
                 hero_sub: '🥄 Spoon-billed Sandpiper · Wetland Spirit · Critically Endangered',
                 hero_tag: '⚠️ Oppose G228 Project · Protect the Last Home',
@@ -861,12 +869,19 @@
                 history_foot: '⏳ Every point in time records the survival crisis of the "Spoonie" and reminds us of the urgency to act.',
                 footer_title: 'Speak for the Spoonie · Protect the Wetlands · Stop G228 Destruction',
                 footer_note: 'This page is for public advocacy. Data is for illustration only. Please support professional conservation organizations.',
-                footer_last: '🌿 Harmony between Humanity and Nature'
+                footer_last: '🌿 Harmony between Humanity and Nature',
+                signed_alert: '🌱 Thank you for signing the petition!\nEvery bit of support gives the "Spoonie" a chance to survive.',
+                share_text: '🥄 The Spoon-billed Sandpiper is on the brink of extinction. Please protect the wetlands and oppose the G228 project!'
             }
         };
 
+        // 全局实时记录当前语言
+        let currentLang = 'zh-CN';
+
         // —— 设置语言 ——
         function setLanguage(lang) {
+            currentLang = lang; // 记录当前实时语言
+
             // 更新按钮状态
             document.querySelectorAll('.lang-switcher button').forEach(btn => {
                 btn.classList.remove('active');
@@ -910,16 +925,19 @@
             animateNumber(document.getElementById('countSpecies'), 180, 1500);
             animateNumber(document.getElementById('countSpecies2'), 1860, 2200);
 
-            // 按钮交互
+            // —— 按钮交互 (使用当前的 currentLang 变量) ——
             const signBtn = document.getElementById('signBtn');
             const shareBtn = document.getElementById('shareBtn');
 
             if (signBtn) {
                 signBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const lang = localStorage.getItem('preferredLang') || 'zh-CN';
-                    const msg = i18n[lang]['btn_sign'] || '签署守护承诺';
-                    alert('🌱 感谢您' + msg + '！\n每一份支持都是“小勺子”活下去的希望。');
+                    // ★★★ 直接读取全局 currentLang，保证 100% 对应屏幕文字 ★★★
+                    const msg = i18n[currentLang]['btn_sign'];
+                    const alertMsg = i18n[currentLang]['signed_alert'];
+                    
+                    alert(alertMsg);
+                    
                     this.innerHTML = '✅ ' + msg;
                     this.style.background = '#4d7a62';
                     this.style.cursor = 'default';
@@ -930,10 +948,12 @@
             if (shareBtn) {
                 shareBtn.addEventListener('click', function(e) {
                     e.preventDefault();
+                    const shareText = i18n[currentLang]['share_text'];
+                    
                     if (navigator.share) {
                         navigator.share({
-                            title: '为小勺子发声',
-                            text: '🥄 勺嘴鹬濒临灭绝，请守护湿地，反对G228工程破坏保护区！',
+                            title: i18n[currentLang]['page_title'],
+                            text: shareText,
                             url: window.location.href,
                         }).catch(() => {});
                     } else {
@@ -943,9 +963,9 @@
                         dummy.select();
                         try {
                             document.execCommand('copy');
-                            alert('🔗 链接已复制！分享给朋友，一起为“小勺子”发声。');
+                            alert('🔗 ' + (currentLang === 'en' ? 'Link copied! Share it with friends to speak for the "Spoonie".' : '链接已复制！分享给朋友，一起为“小勺子”发声。'));
                         } catch (err) {
-                            alert('🕊️ 请手动复制链接分享：' + window.location.href);
+                            alert('🕊️ ' + (currentLang === 'en' ? 'Please manually copy the link to share: ' : '请手动复制链接分享：') + window.location.href);
                         }
                         document.body.removeChild(dummy);
                     }
