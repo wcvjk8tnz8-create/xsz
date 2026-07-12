@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>創意演示頁面 | 現代UI組件</title>
-  <!-- 使用 Google Fonts 增強字體表現 -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 圖標庫 -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -29,7 +29,6 @@
       color: #1e293b;
     }
 
-    /* 深色模式樣式 */
     body.dark-mode {
       background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
       color: #e2e8f0;
@@ -38,10 +37,9 @@
     .demo-card {
       max-width: 850px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.75);
       border-radius: 2.5rem;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 0 10px 25px rgba(0, 20, 30, 0.1);
       padding: 2.5rem;
@@ -51,14 +49,10 @@
 
     body.dark-mode .demo-card {
       background: rgba(30, 41, 59, 0.8);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      background: rgba(30, 41, 59, 0.75);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 10px 25px rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    /* 頂部導航區域 */
     .header {
       display: flex;
       justify-content: space-between;
@@ -79,8 +73,8 @@
     }
 
     .theme-toggle {
-      background: rgba(203, 213, 225, 0.4);
-      border: none;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 3rem;
       padding: 0.6rem 1.2rem;
       display: flex;
@@ -91,8 +85,6 @@
       font-size: 0.95rem;
       color: #1e293b;
       backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.8);
       transition: 0.25s ease;
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
@@ -108,16 +100,6 @@
       box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
 
-    .theme-toggle i {
-      font-size: 1.2rem;
-      color: #fbbf24;
-    }
-
-    body.dark-mode .theme-toggle i {
-      color: #facc15;
-    }
-
-    /* 功能卡片網格 */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -135,52 +117,34 @@
       transition: all 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.7);
       box-shadow: 0 10px 20px -8px rgba(0,0,0,0.05);
-      cursor: default;
     }
 
     body.dark-mode .feature-item {
       background: rgba(51, 65, 85, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 20px -8px rgba(0,0,0,0.4);
     }
 
     .feature-item:hover {
       transform: translateY(-6px);
       background: rgba(255, 255, 255, 0.8);
       box-shadow: 0 22px 30px -12px rgba(0, 67, 156, 0.15);
-      border-color: rgba(37, 99, 235, 0.3);
     }
 
     body.dark-mode .feature-item:hover {
       background: rgba(71, 85, 105, 0.7);
       box-shadow: 0 22px 30px -12px rgba(0, 0, 0, 0.6);
-      border-color: rgba(129, 140, 248, 0.4);
     }
 
     .feature-icon {
       font-size: 2.4rem;
       margin-bottom: 0.9rem;
       color: #2563eb;
-      transition: 0.2s;
     }
 
     body.dark-mode .feature-icon {
       color: #818cf8;
     }
 
-    .feature-item h3 {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .feature-item p {
-      font-size: 0.85rem;
-      opacity: 0.7;
-      line-height: 1.4;
-    }
-
-    /* 互動區域：計數器與通知 */
     .interaction-row {
       display: flex;
       flex-wrap: wrap;
@@ -219,30 +183,20 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      background: rgba(255,255,255,0.9);
       box-shadow: 0 8px 16px rgba(0,0,0,0.05);
       transition: 0.2s;
       color: #1e293b;
-      border: 1px solid rgba(0,0,0,0.05);
     }
 
     body.dark-mode .counter-btn {
       background: #334155;
       color: #f1f5f9;
-      border: 1px solid #475569;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
     }
 
     .counter-btn:hover {
       background: #2563eb;
       color: white;
       transform: scale(1.06);
-      border-color: #2563eb;
-    }
-
-    body.dark-mode .counter-btn:hover {
-      background: #6366f1;
-      color: white;
     }
 
     #counterValue {
@@ -255,7 +209,8 @@
     .notification-area {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
     }
 
     .notify-btn {
@@ -272,12 +227,10 @@
       cursor: pointer;
       transition: 0.25s;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
-      border: 1px solid rgba(255,255,255,0.1);
     }
 
     body.dark-mode .notify-btn {
       background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.4);
     }
 
     .notify-btn:hover {
@@ -296,7 +249,34 @@
       justify-content: center;
       font-size: 0.8rem;
       font-weight: 700;
-      margin-left: 0.3rem;
+    }
+
+    .clear-notify-btn {
+      background: transparent;
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #ef4444;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255,255,255,0.4);
+    }
+
+    body.dark-mode .clear-notify-btn {
+      background: rgba(51,65,85,0.6);
+      color: #f87171;
+      border-color: rgba(248,113,113,0.6);
+    }
+
+    .clear-notify-btn:hover {
+      background: #ef4444;
+      color: white;
+      border-color: #ef4444;
     }
 
     .message-box {
@@ -309,7 +289,6 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      transition: 0.3s;
       border: 1px solid rgba(0,0,0,0.05);
     }
 
@@ -323,23 +302,11 @@
       margin-top: 1.8rem;
       font-size: 0.9rem;
       opacity: 0.65;
-      letter-spacing: 0.3px;
-    }
-
-    @media (max-width: 550px) {
-      .demo-card {
-        padding: 1.8rem;
-      }
-      .interaction-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
 <body>
   <div class="demo-card">
-    <!-- 頭部區域 -->
     <div class="header">
       <span class="logo"><i class="fas fa-cube" style="margin-right: 6px;"></i>創意演示</span>
       <button class="theme-toggle" id="themeToggle">
@@ -348,7 +315,6 @@
       </button>
     </div>
 
-    <!-- 功能展示網格 -->
     <div class="grid">
       <div class="feature-item">
         <div class="feature-icon"><i class="fas fa-bolt"></i></div>
@@ -372,7 +338,6 @@
       </div>
     </div>
 
-    <!-- 互動組件：計數器 + 通知演示 -->
     <div class="interaction-row">
       <div class="counter-box">
         <button class="counter-btn" id="decrementBtn"><i class="fas fa-minus"></i></button>
@@ -384,10 +349,12 @@
           <i class="fas fa-bell"></i> 顯示通知
           <span class="badge" id="notifyBadge" style="display: none;">0</span>
         </button>
+        <button class="clear-notify-btn" id="clearNotifyBtn">
+          <i class="fas fa-times"></i> 清除
+        </button>
       </div>
     </div>
 
-    <!-- 動態消息顯示區域 -->
     <div id="dynamicMessage" class="message-box">
       <i class="fas fa-info-circle"></i> <span id="messageText">準備好開始互動了！點擊按鈕試試。</span>
     </div>
@@ -398,7 +365,7 @@
 
   <script>
     (function() {
-      // --- 狀態管理 ---
+      // 獨立狀態：計數器與通知完全分離
       let counter = 0;
       let notificationCount = 0;
       let isDarkMode = false;
@@ -413,13 +380,13 @@
       const incrementBtn = document.getElementById('incrementBtn');
       const notifyBtn = document.getElementById('notifyBtn');
       const notifyBadge = document.getElementById('notifyBadge');
+      const clearNotifyBtn = document.getElementById('clearNotifyBtn');
       const messageText = document.getElementById('messageText');
       const dynamicMessageDiv = document.getElementById('dynamicMessage');
 
-      // --- 工具函數：更新UI消息 ---
-      function updateMessage(text, isGood = true) {
+      // 更新消息
+      function updateMessage(text) {
         messageText.textContent = text;
-        // 可選輕微動畫效果
         dynamicMessageDiv.style.transition = '0.2s';
         dynamicMessageDiv.style.transform = 'scale(1.02)';
         setTimeout(() => {
@@ -439,29 +406,28 @@
           notifyBadge.textContent = notificationCount;
         } else {
           notifyBadge.style.display = 'none';
-          notifyBadge.textContent = '0';
         }
       }
 
-      // 重設通知計數 (同時更新消息)
-      function resetNotificationCount() {
+      // 重置通知計數
+      function resetNotifications() {
         if (notificationCount === 0) {
-          updateMessage('📭 目前沒有新通知', false);
+          updateMessage('📭 目前沒有新通知');
           return;
         }
         notificationCount = 0;
         updateBadge();
-        updateMessage('✅ 所有通知已清除', true);
+        updateMessage('✅ 所有通知已清除');
       }
 
-      // 增加通知
+      // 增加通知 (僅由通知按鈕觸發)
       function addNotification() {
         notificationCount++;
         updateBadge();
-        updateMessage(`🔔 您有 ${notificationCount} 個新通知！`, true);
+        updateMessage(`🔔 您有 ${notificationCount} 個新通知！`);
       }
 
-      // --- 主題切換邏輯 ---
+      // 主題切換
       function applyTheme(dark) {
         if (dark) {
           body.classList.add('dark-mode');
@@ -477,60 +443,52 @@
       function toggleTheme() {
         isDarkMode = !isDarkMode;
         applyTheme(isDarkMode);
-        // 可選消息反饋
-        updateMessage(
-          isDarkMode ? '🌙 已切換至深色模式' : '☀️ 已切換至淺色模式',
-          true
-        );
+        updateMessage(isDarkMode ? '🌙 已切換至深色模式' : '☀️ 已切換至淺色模式');
       }
 
-      // --- 計數器操作 ---
+      // 計數器操作 (完全不影響通知)
       function incrementCounter() {
         counter++;
         updateCounterDisplay();
-        updateMessage(`➕ 計數器增加至 ${counter}`, true);
+        updateMessage(`➕ 計數器增加至 ${counter}`);
       }
 
       function decrementCounter() {
         counter--;
         updateCounterDisplay();
-        updateMessage(`➖ 計數器減少至 ${counter}`, true);
+        updateMessage(`➖ 計數器減少至 ${counter}`);
       }
 
-      // --- 事件綁定 ---
+      // 事件綁定
       themeToggle.addEventListener('click', toggleTheme);
-
       incrementBtn.addEventListener('click', incrementCounter);
       decrementBtn.addEventListener('click', decrementCounter);
+      
+      // 通知按鈕：僅增加通知計數
+      notifyBtn.addEventListener('click', addNotification);
+      
+      // 清除按鈕：重置通知計數
+      clearNotifyBtn.addEventListener('click', resetNotifications);
 
-      notifyBtn.addEventListener('click', function(event) {
-        // 點擊通知按鈕：顯示通知並增加計數
-        addNotification();
-        // 可選：點擊後也可以做其他動畫
+      // 點擊徽章本身也可清除通知
+      notifyBadge.addEventListener('click', function(e) {
+        e.stopPropagation();
+        resetNotifications();
       });
 
-      // 附加功能：點擊徽章本身可以清除通知 (方便操作)
-      notifyBadge.addEventListener('click', function(event) {
-        event.stopPropagation(); // 防止觸發按鈕的點擊事件
-        resetNotificationCount();
-      });
-
-      // 也可以在動態消息區域雙擊重置通知（隱藏小彩蛋）
+      // 雙擊消息區域重置通知
       dynamicMessageDiv.addEventListener('dblclick', function() {
-        resetNotificationCount();
-        updateMessage('✨ 雙擊重置了通知計數', true);
+        resetNotifications();
       });
 
-      // 初始化顯示
-      applyTheme(isDarkMode); // 預設淺色
+      // 初始化
+      applyTheme(isDarkMode);
       updateCounterDisplay();
       updateBadge();
-      // 確保初始消息
-      updateMessage('👋 歡迎！試試計數器或通知按鈕。', true);
+      updateMessage('👋 歡迎！計數器與通知已完全分離。');
 
-      // 鍵盤支持 (可選)：按 + 或 - 鍵調整計數器
+      // 鍵盤快速鍵
       window.addEventListener('keydown', function(e) {
-        // 避免在輸入框等元素觸發，此頁面無輸入框，直接使用
         if (e.key === '+' || e.key === '=') {
           e.preventDefault();
           incrementCounter();
@@ -542,14 +500,12 @@
           addNotification();
         } else if (e.key === 'c' || e.key === 'C') {
           e.preventDefault();
-          resetNotificationCount();
+          resetNotifications();
         } else if (e.key === 't' || e.key === 'T') {
           e.preventDefault();
           toggleTheme();
         }
       });
-
-      console.log('🎨 演示頁面已啟動！可使用鍵盤：+/- 調整計數，N 通知，C 清除通知，T 切換主題');
     })();
   </script>
 </body>
